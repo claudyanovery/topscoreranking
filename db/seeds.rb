@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "Seeding.."
+
+Score.create([
+        {player: 'Peter', score: 4},
+        {player: 'Mark', score: 3},
+        {player: 'Matt', score: 3},
+        {player: 'peter', score: 1},
+        {player: 'mArk', score: 2},
+        {player: 'mat', score: 2}
+    ])
+
+puts "Seeding done!"
