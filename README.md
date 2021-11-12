@@ -15,18 +15,30 @@
 
 ## Project Setup
 
-### Database initialization
+1. Cloning repository
+```
+$ git clone git@github.com:claudyanovery/topscoreranking.git
+$ cd topscoreranking
+```
 
-* Run `rails db:create db:migrate db:seed`
+2. Setup .env file
 
-### Rails
+    Rename `example.env` file to `.env` then fill in the:
+    - DATABASE_PASSWORD
+    - DATABASE_USER
+    - DATABASE_HOST
 
-* Rename `example.env` file to `.env` then fill in the database `password`, `user` and `host`
+3. Setup database
 
-## How to run the test suite
+```
+~/topscoreranking $ rails db:create db:migrate db:seed
+```
 
-1. Change directory to the project directory
-2. Run `rspec`
+4. Start the server
+
+```
+~/topscoreranking $ rails s
+```
 
 ## API Endpoints
 
@@ -130,4 +142,10 @@
     }
   ]
 }
+```
+
+## How to run the test suite
+
+```
+~/topscoreranking $ rspec
 ```

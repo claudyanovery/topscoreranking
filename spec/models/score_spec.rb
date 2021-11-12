@@ -19,7 +19,7 @@ RSpec.describe Score, type: :model do
     it { is_expected.to validate_presence_of(:player) }
   end
 
-  describe 'score scope' do
+  describe 'scope' do
     describe ':player' do
       it 'returns a player' do
         expect(Score.player(@score1.player)).to include(@score1, @score2, @score3)
