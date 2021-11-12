@@ -8,6 +8,10 @@
 - gem 'dotenv-rails'
 - gem 'will_paginate'
 - gem 'api-pagination'
+- gem 'factory_bot_rails', '~> 4.0'
+- gem 'shoulda-matchers', '~> 3.1'
+- gem 'faker'
+- gem 'database_cleaner'
 
 ## Project Setup
 
@@ -21,9 +25,10 @@
 
 ## How to run the test suite
 
-Coming soon
+1. Change directory to the project directory
+2. Run `rspec`
 
-## API Routes
+## API Endpoints
 
 ### Create score 
 - Method: POST
@@ -33,16 +38,16 @@ Coming soon
   - Fields: 
     - score: integer 
     - player: string
-  - Response:
-    ```
-    {
-        "id": 10,
-        "player": "PETER",
-        "score": 5,
-        "created_at": "2021-11-10T07:41:56.134Z",
-        "updated_at": "2021-11-10T07:41:56.134Z"
-    }
-    ```
+- Response:
+  ```
+  {
+      "id": 10,
+      "player": "PETER",
+      "score": 5,
+      "created_at": "2021-11-10T07:41:56.134Z",
+      "updated_at": "2021-11-10T07:41:56.134Z"
+  }
+  ```
 
 ### Get score by ID
 - Method: GET
@@ -116,18 +121,12 @@ Coming soon
   "avg_score": 3.25,
   "all_scores": [
     {
-      "id": 1,
-      "player": "Peter",
       "score": 4,
-      "created_at": "2021-11-09T14:00:05.534Z",
-      "updated_at": "2021-11-09T14:00:05.534Z"
+      "created_at": "2021-11-09T14:00:05.534Z"
     },
     {
-      "id": 4,
-      "player": "peter",
       "score": 1,
-      "created_at": "2021-11-09T14:00:05.551Z",
-      "updated_at": "2021-11-09T14:00:05.551Z"
+      "created_at": "2021-11-09T14:00:05.551Z"
     }
   ]
 }
