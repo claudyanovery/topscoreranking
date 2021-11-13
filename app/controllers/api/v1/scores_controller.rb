@@ -4,7 +4,6 @@ module Api
   module V1
     class ScoresController < ApplicationController
       before_action :find_score, only: %i[show destroy]
-      # GET /score
       def show
         render json: @score
       end

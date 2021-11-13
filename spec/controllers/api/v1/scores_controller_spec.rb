@@ -6,8 +6,6 @@ RSpec.describe Api::V1::ScoresController, type: :request do
   before(:all) do
     @invalid_score = Score.create(score: -3, player: "Ray")
     @score1 = Score.create(score: 1, player: "Tom")
-    @score2 = Score.create(score: 2, player: "tom2")
-    @score3 = Score.create(score: 3, player: "TOM3")
   end
   
 
@@ -70,18 +68,18 @@ RSpec.describe Api::V1::ScoresController, type: :request do
         {
             "after" => Time.now - 1.hour,
             "before" => Time.now + 1.hour,
-            "players" => @score2.player
+            "players" => @score1.player
         }
     end
     
     let(:expected_filter_score_response) do
         [
             {
-                "id" => @score2.id,
-                "player" => @score2.player,
-                "score" => @score2.score,
-                "created_at" => @score2.created_at.strftime('%Y-%m-%dT%H:%M:%S.%3NZ'),
-                "updated_at" => @score2.updated_at.strftime('%Y-%m-%dT%H:%M:%S.%3NZ')
+                "id" => @score1.id,
+                "player" => @score1.player,
+                "score" => @score1.score,
+                "created_at" => @score1.created_at.strftime('%Y-%m-%dT%H:%M:%S.%3NZ'),
+                "updated_at" => @score1.updated_at.strftime('%Y-%m-%dT%H:%M:%S.%3NZ')
             }
         ]
     end
@@ -94,28 +92,20 @@ RSpec.describe Api::V1::ScoresController, type: :request do
   describe "POST /api/v1/player_history" do
     let(:player_history_params) do
         {
-            "player" => "tom"
+            "player" => @score1.player
         }
     end
 
     let(:expected_player_history_response) do
         {
-            "max_score" => 3,
+            "max_score" => 1,
             "low_score" => 1,
-            "avg_score" => 2.0,
+            "avg_score" => 1.0,
             "all_scores" => [
                 {
                     "score" => @score1.score,
-                    "created_at" => @score1.created_at
-                },
-                {
-                    "score" => @score2.score,
-                    "created_at" => @score2.created_at
-                },
-                {
-                    "score" => @score3.score,
-                    "created_at" => @score3.created_at
-                }        
+                    "created_at" => @score1.created_at.strftime('%Y-%m-%dT%H:%M:%S.%3NZ')
+                }       
             ]
         }
     end
